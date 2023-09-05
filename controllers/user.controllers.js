@@ -5,3 +5,5 @@ class UserControllers {
         this.userServices = new UserServices()
     }
 }
+
+module.exports = UserControllers;

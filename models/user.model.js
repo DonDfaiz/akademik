@@ -17,10 +17,10 @@ class UserModels {
   async findByEmail(cariEmail) {
     try {
       const users = await this.connect();
-      const userWithEmail = users.find(user => user.email === cariEmail);
+      const userWithEmail = users.find((user) => user.email === cariEmail);
       return userWithEmail;
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
   }
 
@@ -28,11 +28,14 @@ class UserModels {
     try {
       const data = await this.connect();
       data.push(body);
-      await fs.writeFile("./database/users.json",  JSON.stringify(data,null,2));
+      await fs.writeFile(
+        "./database/users.json",
+        JSON.stringify(data, null, 2)
+      );
     } catch (error) {
       console.error(error);
     }
-
+  }
 }
 
 module.exports = UserModels;
